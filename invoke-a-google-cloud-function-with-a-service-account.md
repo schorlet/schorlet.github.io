@@ -1,4 +1,4 @@
-# Invoke a Google Cloud Function with a Service Account
+### Invoke a Google Cloud Function with a Service Account
 
 This article is about the [Service-to-function](https://cloud.google.com/functions/docs/securing/authenticating#service-to-function) section of the Google Cloud documentation.
 
@@ -8,13 +8,12 @@ The context:
 - You have created a service account that is granted the permission to invoke the function.
 - You need to invoke the function from outside GCP.
 
-When you restrict the ability to invoke a function. it can only be invoked by providing authentication credentials in the request.
+When you restrict the ability to invoke a function, it can only be invoked by providing authentication credentials in the request.
 
 As a developer, you can use the `gcloud` tool and test the function as follows:
 
 ```sh
 gcloud auth activate-service-account $SERVICE_ACCOUNT --key-file $KEY_FILE
-
 curl https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME} \
 	-H "Authorization: bearer $(gcloud auth print-identity-token)"
 ```
