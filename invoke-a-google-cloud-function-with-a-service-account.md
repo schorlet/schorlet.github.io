@@ -78,8 +78,10 @@ The http.Client created by the [jwt.Config](https://pkg.go.dev/golang.org/x/oaut
 
 #### References
 
-- https://medium.com/google-cloud/authenticating-using-google-openid-connect-tokens-e7675051213b
-- https://github.com/salrashid123/google_id_token
+- <https://medium.com/google-cloud/authenticating-using-google-openid-connect-tokens-e7675051213b>
+- <https://github.com/salrashid123/google_id_token>
+- <https://developers.google.com/identity/protocols/OAuth2#serviceaccount>
+- <https://developers.google.com/identity/protocols/OAuth2ServiceAccount>
 
 Thanks to salrashid123
 
