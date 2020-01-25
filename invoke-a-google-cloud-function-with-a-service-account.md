@@ -1,5 +1,7 @@
 ### Invoke a Google Cloud Function with a Service Account
 
+> 2020-01-25
+
 This article is about the [Service-to-function](https://cloud.google.com/functions/docs/securing/authenticating#service-to-function) section of the Google Cloud documentation.
 
 The context:
@@ -72,5 +74,13 @@ The http.Client created by the [jwt.Config](https://pkg.go.dev/golang.org/x/oaut
 - Exchange the Signed-JWT for a Google ID Token.
 - Automatically set the Authorization Header for each request.
 - And reuse/renew the ID Token.
+
+
+#### References
+
+- https://medium.com/google-cloud/authenticating-using-google-openid-connect-tokens-e7675051213b
+- https://github.com/salrashid123/google_id_token
+
+Thanks to salrashid123
 
 
