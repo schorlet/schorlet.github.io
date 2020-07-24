@@ -20,6 +20,8 @@ curl https://${REGION}-${PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME} \
 	-H "Authorization: bearer $(gcloud auth print-identity-token)"
 ```
 
+#### Outside GCP
+
 Reading the documentation, if you're invoking a function from your application, you'll have to manually generate the proper token:
 
 1. Self-sign a service account JWT with the **target_audience** claim set to the URL of the receiving function.
@@ -75,6 +77,22 @@ The http.Client created by the [jwt.Config](https://pkg.go.dev/golang.org/x/oaut
 - Automatically set the Authorization Header for each request.
 - And reuse/renew the ID Token.
 
+#### Inside GCP
+
+If your application is running inside GCP, you could use the Application Default Credentials instead of loading the credentials from a file:
+
+```diff
+-func invoke(credentials, functionURL string) error {
+-   data, err := ioutil.ReadFile(credentials)
++func invoke(functionURL string) error {
++   creds, err := google.FindDefaultCredentials(context.Background())
+        if err != nil {
+                return err
+        }
+
+-   conf, err := google.JWTConfigFromJSON(data)
++   conf, err := google.JWTConfigFromJSON(creds.JSON)
+```
 
 #### References
 
